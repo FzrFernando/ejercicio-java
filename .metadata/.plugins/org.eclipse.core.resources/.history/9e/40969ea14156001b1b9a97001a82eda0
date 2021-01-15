@@ -1,0 +1,166 @@
+package method;
+
+
+public class Ejercicio {
+	
+	public static final Double PI = 3.14;
+	
+
+	public static void main(String[] args) {
+				
+		// Variables
+		// Inicio
+		System.out.println(maximoComunDivisor(656,848));
+				
+				
+	}
+	
+	public static int numeroSolucionesEcuacionSegundoGrado(int a, int b, int c) {
+		int result;
+		result = b*b - 4*a*c;
+		if (a == 0) {
+			return -1;
+		}
+		else if (result ==0 ) {
+			return 1;
+		}
+		else if (result < 0) {
+			return 0;
+		}
+		else {
+			return 2;
+		}
+	}
+	
+	public static Double solucionSumaEcuacionSegundoGrado(int a, int b, int c) {
+		int result;
+		result=numeroSolucionesEcuacionSegundoGrado( a,  b,  c);
+		Double ecuacion;
+		if (result <= 0 ) {
+			return (double) -1000;
+		}
+		else {
+			ecuacion = (-b+Math.sqrt(b*b-4*a*c))/(2*a);
+			return ecuacion;
+		}
+	}
+	
+	
+	
+	public static Double solucionRestaEcuacionSegundoGrado(int a, int b, int c) {
+		int result;
+		result=numeroSolucionesEcuacionSegundoGrado( a,  b,  c);
+		Double ecuacion;
+		ecuacion = (-b-Math.sqrt(b*b-4*a*c))/(2*a);
+		if (result <= 0 ) {
+			return (double) -1000;
+		}
+		else {
+			return ecuacion;
+		}
+	}	
+	
+	public static Double areaCirculo(Double r) {
+		Double radio;
+		radio=PI*r*r;
+		if (radio ==0) {
+			return (double) 0;
+		}
+		else {
+			return radio;
+		}
+	}
+	
+	public static Double longitudCirculo(Double r) {
+		Double longitud;
+		longitud=2*PI*r;
+		if (longitud == 0) {
+			return (double) 0;
+		}
+		else {
+			return longitud;
+		}
+	}
+	
+	public static boolean esMultiplo(int a, int b) {
+		if (a==0 || b==0) {
+			return false;
+		}
+		else if (a%b==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static int horaMayor(int hora1, int min1, int seg1, int hora2, int min2, int seg2) {
+		int horaminseg1;
+		horaminseg1=hora1*3600+min1*60+seg1;
+		int horaminseg2;
+		horaminseg2=hora2*3600+min2*60+seg2;
+		if ((min1>60) || (min2>60) || (seg1>60) || (seg2>60) || (hora1>23) || (hora2>23)){
+			return -1000;
+		}
+		else if (horaminseg1 > horaminseg2) {
+			return 1;
+		}
+		else if (horaminseg1 < horaminseg2) {
+			return 2;
+		}
+		else {
+			return 0;
+		}
+		
+		
+	}
+	
+	public static int segundosEntre(int hora1, int min1, int seg1, int hora2, int min2, int seg2) {
+		int comparacion;
+		comparacion=horaMayor(hora1, min1, seg1, hora2, min2, seg2);
+		int horaminseg1;
+		horaminseg1=hora1*3600+min1*60+seg1;
+		int horaminseg2;
+		horaminseg2=hora2*3600+min2*60+seg2;
+		if ((comparacion<0) || (horaminseg2>horaminseg1)) {
+			return -1000;
+		}
+		else if (comparacion>0) {
+			return (horaminseg1-horaminseg2);
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	public static int maximoComunDivisor(int a, int b) {
+		int mayor;
+		mayor=a;
+		int menor;
+		menor=b;
+		while (mayor % menor != 0){
+			int resto;
+			resto = mayor % menor;
+			mayor = menor;
+			menor = resto;
+		}
+		return menor;
+	}
+	
+	public static int minimoComunMultiplo(int a, int b) {
+		int menor;
+		menor = maximoComunDivisor (a, b);
+		int mcm;
+		mcm = (a*b)/menor;
+		return mcm;
+	}
+	
+	public static String binario(int num) {
+		while (num > 2) {
+		}
+	}
+	
+	public static int decimal(String num) {
+		
+	}
+}
